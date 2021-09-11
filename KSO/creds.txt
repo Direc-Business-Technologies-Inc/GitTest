@@ -1,7 +1,0 @@
-SERVERNODE={Server}
-PWD={AODBPassword}
-AOServer
-
-\\192.168.2.32\abci reports\ABCI - BROKER APPLICATION FORM.rpt
-
-\\EC2AMAZ-VOP6UKA\abci reports
