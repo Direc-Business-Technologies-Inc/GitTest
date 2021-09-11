@@ -1,2 +1,4 @@
 Adjusted using Remote(GitHub)
 Adjusted using Local(Git)
+
+Adjusted using 2nd Branch
