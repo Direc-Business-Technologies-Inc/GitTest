@@ -7,3 +7,8 @@ Bigfixes
 1. Edit 404 page
 2. Edit 403 page
 3. Edit index
+
+Additional Features
+1. add login page
+2. add about us page
+3. add contact us page
