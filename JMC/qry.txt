@@ -1,0 +1,44 @@
+
+------- THIS IS FOR ADDON WHEN CANCELING PAYMENTS TO SAP WILL also be reflected in DREAMS. ----
+IF :object_type = '24' and (:transaction_type = 'C')
+THEN
+	UPDATE A
+	
+	SET A."Cancelled" = 'Y' , C."LineStatus" = 'O'
+	 
+	FROM "SAOLIVE_ABCI"."QUT2" A   /** CASH **/
+	INNER JOIN ORCT B on B."DocEntry" = A."SapDocEntry" 
+	LEFT JOIN "SAOLIVE_ABCI"."QUT1" C ON C."DocEntry" = A."DocEntry" AND A."BaseEntry" = C."Id"
+	/*INNER JOIN OCRD C on B."CardCode" = C."CardCode" AND  A."CardCode" = C."CardFName"*/
+	WHERE B."DocEntry" = :list_of_cols_val_tab_del; 
+	 
+	
+	UPDATE A
+	
+	SET A."Cancelled" = 'Y' 
+
+	FROM "SAOLIVE_ABCI"."QUT3" A   /** CHECK **/
+	INNER JOIN ORCT B on B."DocEntry" = A."SapDocEntry"
+	LEFT JOIN "SAOLIVE_ABCI"."QUT1" C ON C."DocEntry" = A."DocEntry" AND A."BaseEntry" = C."Id"
+	/*INNER JOIN OCRD C on B."CardCode" = C."CardCode" AND  A."CardCode" = C."CardFName"*/
+	WHERE B."DocEntry" = :list_of_cols_val_tab_del; 
+	
+	UPDATE A
+	
+	SET A."Cancelled" = 'Y' , C."LineStatus" = 'O'
+
+	FROM "SAOLIVE_ABCI"."QUT4" A   /** CREDIT **/
+	INNER JOIN ORCT B on B."DocEntry" = A."SapDocEntry"
+	LEFT JOIN "SAOLIVE_ABCI"."QUT1" C ON C."DocEntry" = A."DocEntry" AND A."BaseEntry" = C."Id"
+	WHERE B."DocEntry" = :list_of_cols_val_tab_del; 
+
+	UPDATE A
+	
+	SET A."Cancelled" = 'Y' , C."LineStatus" = 'O'
+
+	FROM "SAOLIVE_ABCI"."QUT7" A   /** INTERBRANCH **/
+	INNER JOIN ORCT B on B."DocEntry" = A."SapDocEntry"
+	LEFT JOIN "SAOLIVE_ABCI"."QUT1" C ON C."DocEntry" = A."DocEntry" AND A."BaseEntry" = C."Id"
+	WHERE B."DocEntry" = :list_of_cols_val_tab_del; 
+	
+END IF;
