@@ -1,3 +1,3 @@
-WELCOME TO GITHUB GIT DEMO
+WELCOME TO GITHUB GIT DEMO CLONE
 
-test from github pull
+test from github pull CLONE
