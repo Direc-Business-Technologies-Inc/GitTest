@@ -2,3 +2,5 @@ Adjusted using Remote(GitHub)
 Adjusted using Local(Git)
 
 Adjusted using 2nd Branch
+
+Bug fixing 09/11/2021
